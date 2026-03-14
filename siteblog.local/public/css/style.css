@@ -1,0 +1,578 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/*ССЫЛКИ*/
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*HEADER*/
+.header{
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom:1px solid #eee;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter: blur(5px);
+}
+
+.site-title{
+    font-size:22px;
+    font-weight:bold;
+    color:#3498db;
+}
+
+.topbar{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+/* КОНТЕЙНЕР*/
+.container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 100px auto 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* ЗАГОЛОВКИ*/
+h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 1.8rem;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #34495e;
+    font-size: 1.4rem;
+}
+
+/*ПОСТЫ*/
+.post-card {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.post-card:last-child {
+    border-bottom: none;
+}
+
+.meta {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* ПОЛНЫЙ ПОСТ*/
+.post-full {
+    margin-bottom: 20px;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/*КНОПКИ*/
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #3498db;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #2980b9;
+}
+
+.secondary { background: #7f8c8d; }
+.secondary:hover { background: #636e72; }
+
+.logout-btn { background: #2c3e50; }
+.logout-btn:hover { background: #1a252f; }
+
+.edit-btn { background: #f39c12; }
+.edit-btn:hover { background: #d68910; }
+
+.delete-btn { background: #e74c3c; }
+.delete-btn:hover { background: #c0392b; }
+
+/*ФОРМЫ (login / register)*/
+.form-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 100px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+button {
+    padding: 10px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/*ОШИБКИ*/
+.error {
+    background: #ffe6e6;
+    color: #c0392b;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/*КОММЕНТАРИИ*/
+.comment {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment-meta {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.comment-form {
+    margin-top: 25px;
+}
+
+/*ПАГИНАЦИЯ*/
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 3px;
+    background: #ecf0f1;
+    color: #333;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.pagination a:hover {
+    background: #d0d7de;
+}
+
+.pagination a.active {
+    background: #3498db;
+    color: white;
+}
+
+/*АДМИН HEADER*/
+.admin-header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* верхний ряд: заголовок + кнопка выйти */
+.admin-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+    background: #2c3e50;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.logout-btn:hover {
+    background: #1a252f;
+}
+
+/* меню админ-панели */
+.admin-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/*ТАБЛИЦА*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th {
+    background: #f7f7f7;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.actions {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+/*Сообщение для неавторизованных пользователей*/
+.login-msg {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #555;
+}
+
+.login-msg a {
+    color: #3498db;
+}
+
+.post-like{
+margin:15px 0;
+font-size:18px;
+}
+
+.post-like button{
+background:none;
+border:none;
+font-size:18px;
+cursor:pointer;
+color:#e74c3c;
+}
+
+.post-like button:hover{
+opacity:0.8;
+}
+
+/*АДАПТИВ (MOBILE)*/
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+    }
+
+    .site-title {
+        font-size: 20px;
+    }
+
+    .container {
+        margin: 120px 10px 20px 10px;
+        padding: 15px;
+    }
+
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+
+    .form-container {
+        margin: 80px 10px;
+        padding: 20px;
+    }
+
+    input, textarea, button {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .post-image {
+        max-height: 250px;
+    }
+
+    .admin-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .admin-menu {
+        gap: 5px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    .pagination a {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}
+
+/*АДАПТИВ ШАПКИ*/
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+        height: auto;
+    }
+
+    .site-title {
+        font-size: 28px; 
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .topbar {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .topbar .btn {
+        flex: 1 1 auto; 
+        text-align: center;
+        font-size: 16px; 
+        padding: 10px 15px;
+    }
+
+    .container {
+        padding-top: 100px;
+    }
+}
+
+/*АДАПТИВ АДМИН ПАНЕЛЬ*/
+@media (max-width: 768px) {
+
+    /* Админ-хедер */
+    .admin-header-top {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .admin-header-top h1 {
+        font-size: 24px; 
+    }
+
+    .logout-btn {
+        font-size: 16px;
+        padding: 10px 15px;
+        width: 100%; 
+        text-align: center;
+    }
+
+    /* Меню админа */
+    .admin-menu {
+        flex-direction: column; 
+        gap: 8px;
+    }
+
+    .admin-menu .btn {
+        font-size: 16px;
+        padding: 10px 15px;
+        width: 100%; 
+        text-align: center;
+    }
+
+    /* Таблица */
+    table, thead, tbody, th, td, tr {
+        display: block; 
+        width: 100%;
+    }
+
+    thead {
+        display: none; 
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 10px;
+        font-size: 14px;
+        border-bottom: 1px solid #eee;
+        text-align: right; 
+    }
+
+    td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #555;
+    }
+
+    /* Действия */
+    .actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .actions .btn {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}
+
+/*АДАПТАЦИЯ СТРАНИЦЫ СОЗДАНИЯ ПОСТА*/
+
+@media (max-width:768px){
+
+.container{
+margin:120px 10px 20px 10px;
+padding:15px;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+label{
+font-size:15px;
+}
+
+input[type="text"],
+textarea,
+input[type="file"]{
+width:100%;
+font-size:16px;
+padding:12px;
+}
+
+textarea{
+min-height:160px;
+}
+
+button{
+font-size:16px;
+padding:12px;
+width:100%;
+}
+
+img{
+max-width:100%;
+height:auto;
+}
+
+}
+
+/*АДАПТАЦИЯ СТРАНИЦЫ КОММЕНТАРИЕВ*/
+@media (max-width:768px){
+
+.container{
+    margin:120px 10px 20px 10px;
+    padding:15px;
+}
+
+.comment{
+    padding:12px;
+    border-bottom:1px solid #eee;
+}
+
+.comment-meta{
+    font-size:14px;
+    margin-bottom:8px;
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+}
+
+.comment p{
+    font-size:15px;
+    line-height:1.5;
+}
+
+.comment a{
+    display:inline-block;
+    margin-top:8px;
+    font-size:14px;
+}
+
+h2{
+    font-size:1.3rem;
+    margin-bottom:15px;
+}
+
+a{
+    font-size:14px;
+}
+
+}
